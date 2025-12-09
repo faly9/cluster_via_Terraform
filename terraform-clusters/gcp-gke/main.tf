@@ -12,7 +12,4 @@ resource "google_container_cluster" "gke_cluster" {
   network    = "default"
   subnetwork = "default"
 
-  autoscaling {
-    autoscaling_profile = "BALANCED"
-  }
 }
