@@ -23,4 +23,8 @@ resource "google_container_node_pool" "default_pool" {
       "https://www.googleapis.com/auth/cloud-platform"
     ]
   }
+
+  depends_on = [
+    google_container_cluster.gke_cluster
+  ]
 }
