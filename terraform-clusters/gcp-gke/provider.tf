@@ -4,10 +4,6 @@ terraform {
       source  = "hashicorp/google"
       version = "5.17.0"
     }
-    kubernetes = {
-      source  = "hashicorp/kubernetes"
-      version = "2.21.0"
-    }
   }
 
   required_version = ">= 1.5.0"
@@ -21,8 +17,3 @@ provider "google" {
 
 data "google_client_config" "default" {}
 
-provider "kubernetes" {
-  host                   = "https://${google_container_cluster.gke_cluster.endpoint}"
-  cluster_ca_certificate = base64decode(google_container_cluster.gke_cluster.master_auth[0].cluster_ca_certificate)
-  token                  = data.google_client_config.default.access_token
-}
