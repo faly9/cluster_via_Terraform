@@ -17,7 +17,7 @@ resource "google_container_node_pool" "default_pool" {
 
   node_config {
     machine_type = var.machine_type
-    disk_size_gb = 50  # <-- Limite de disque par nœud
+    disk_size_gb = var.disk_size
 
     oauth_scopes = [
       "https://www.googleapis.com/auth/cloud-platform"
@@ -28,3 +28,4 @@ resource "google_container_node_pool" "default_pool" {
     google_container_cluster.gke_cluster
   ]
 }
+
